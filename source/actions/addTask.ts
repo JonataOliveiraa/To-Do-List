@@ -14,13 +14,13 @@ export default function addTask(task:Task) {
 
     if (taskNameInput.value === '') {
         taskNameInput.focus()
-        errorInputEffect();
+        errorInputEffect('name');
         return;
     }
     
     if (taskContentInput.value === '') {
-        taskNameInput.focus
-        errorInputEffect();
+        taskContentInput.focus()
+        errorInputEffect('content');
         return;
     }
 
@@ -28,14 +28,13 @@ export default function addTask(task:Task) {
 
     for(let [name, content] of tasks) {
         if(name === task.name) {
-            errorInputEffect()
+            errorInputEffect('name')
             console.log('ja existe')
             return;
         }
     }
 
     showTask(task)//adiçao na lista de task do html
-    console.log('adicionado')
     insertTaskData(task)//adicionando na lista de task do localstorage
 
     //limpar todos os campo e focar no input inicial

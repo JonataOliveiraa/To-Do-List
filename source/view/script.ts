@@ -7,6 +7,7 @@ import { get } from "http"
 const taskListBox = document.querySelector("#list")
 const createButton = document.querySelector("#create") as HTMLButtonElement
 const taskInputC = document.querySelector("#task") as HTMLInputElement
+const contentInputC = document.querySelector("#content") as HTMLInputElement
 
 const loaded = getTasksData()
 loaded.forEach((content, name) => {
@@ -29,13 +30,15 @@ taskInputC.addEventListener("input", () => {
     
     for(let [name, content] of tasks) {
         if(name === taskNameInput.value) {
-            errorInputEffect(false)
+            errorInputEffect('name', false)
             return;
         }
     }
     taskNameInput.style.borderColor = "#5a9cff"
     return;
 })
+
+contentInputC.addEventListener('input', () => contentInputC.style.borderColor = "#5a9cff")
 
 document.addEventListener("keydown", e => {
     if(e.key === "Enter") createButton.click()

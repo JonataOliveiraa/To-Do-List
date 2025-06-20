@@ -10,24 +10,23 @@ export default function addTask(task) {
     task.content = task.content.trim();
     if (taskNameInput.value === '') {
         taskNameInput.focus();
-        errorInputEffect();
+        errorInputEffect('name');
         return;
     }
     if (taskContentInput.value === '') {
-        taskNameInput.focus;
-        errorInputEffect();
+        taskContentInput.focus();
+        errorInputEffect('content');
         return;
     }
     const tasks = getTasksData();
     for (let [name, content] of tasks) {
         if (name === task.name) {
-            errorInputEffect();
+            errorInputEffect('name');
             console.log('ja existe');
             return;
         }
     }
     showTask(task);
-    console.log('adicionado');
     insertTaskData(task);
     taskNameInput.value = '';
     taskContentInput.value = '';

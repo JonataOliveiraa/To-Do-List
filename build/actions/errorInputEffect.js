@@ -1,6 +1,6 @@
 export default function errorInputEffect(input, vibrate = true) {
     const taskNameInput = document.querySelector("#task");
-    const taskContentInput = document.querySelector("#task");
+    const taskContentInput = document.querySelector("#content");
     switch (input) {
         case 'name':
             taskNameInput.focus();
@@ -17,5 +17,4 @@ export default function errorInputEffect(input, vibrate = true) {
             document.body.classList.remove("vibrando");
         }, 250);
     }
-    return;
 }
