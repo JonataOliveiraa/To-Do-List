@@ -6,11 +6,19 @@ export default function addTask(task) {
     const taskNameInput = document.querySelector("#task");
     const taskContentInput = document.querySelector("#content");
     const taskListBox = document.querySelector("#list");
-    if (taskNameInput.value === '' || taskContentInput.value === '')
-        return;
-    const tasks = getTasksData();
     task.name = task.name.trim();
     task.content = task.content.trim();
+    if (taskNameInput.value === '') {
+        taskNameInput.focus();
+        errorInputEffect();
+        return;
+    }
+    if (taskContentInput.value === '') {
+        taskNameInput.focus;
+        errorInputEffect();
+        return;
+    }
+    const tasks = getTasksData();
     for (let [name, content] of tasks) {
         if (name === task.name) {
             errorInputEffect();
